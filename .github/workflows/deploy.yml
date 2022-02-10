@@ -49,4 +49,4 @@ jobs:
             cd ${{ secrets.SERVER_TARGET }}
             pnpm install --prod --frozen-lockfile
             pm2 delete $(pwd | awk -F / '{print $NF}')
-            pm2 start "pnpm start:prod" --name $(pwd | awk -F / '{print $NF}')
+            pm2 start "pnpm run start:prod" --name $(pwd | awk -F / '{print $NF}')

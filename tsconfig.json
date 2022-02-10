@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
     "typeRoots": ["./node_modules/@types", "./typings"],
     "lib": ["es2021"],
     "module": "commonjs",

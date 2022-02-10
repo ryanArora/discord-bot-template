@@ -9,17 +9,17 @@ export interface ClientExtensions {
   readonly commands: Collection<Command["name"], Command>;
 }
 
+export const extensions: ClientExtensions = {
+  prefix: "=",
+  logger,
+  commands: new Collection(),
+};
+
 /**
  * Add the custom extensions to a discord.js Client
  * This should be called as soon as possible after client initialization
  */
 export default function transformClient(client: Client) {
-  const extensions: ClientExtensions = {
-    prefix: "=",
-    logger,
-    commands: new Collection(),
-  };
-
-  Object.assign(client, extensions);
-  return client;
+  const newClient: Client = Object.assign({}, client, extensions);
+  return newClient;
 }
