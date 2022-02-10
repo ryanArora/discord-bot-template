@@ -19,17 +19,6 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Copy build to server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "./build"
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
-          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
-          REMOTE_USER: ${{ secrets.SERVER_USER }}
-          TARGET: ${{ secrets.SERVER_TARGET }}
-
       - name: Move files to deploy into deploy folder
         run: |
           mkdir _deploy
@@ -37,6 +26,17 @@ jobs:
           mv ./build _deploy
           mv ./package.json _deploy
           mv ./pnpm-lock.yaml _deploy
+
+      - name: Copy build to server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "_deploy/"
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          TARGET: ${{ secrets.SERVER_TARGET }}
 
       - name: Redeploy app
         uses: appleboy/ssh-action@master
