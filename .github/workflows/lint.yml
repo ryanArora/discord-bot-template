@@ -32,7 +32,6 @@ jobs:
       - name: Run prettier
         uses: wearerequired/lint-action@v1
         with:
-          git_name: "Github Actions"
           auto_fix: true
           git_no_verify: true
           neutral_check_on_warning: true
