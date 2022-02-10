@@ -1,15 +1,15 @@
 {
   "name": "@ryanarora/discord-bot-template",
-  "description": "A template for my Discord bots",
   "private": true,
+  "description": "A template for my Discord bots",
   "main": "src/index.js",
   "scripts": {
-    "preinstall": "npx -y only-allow@1.0.0 pnpm",
-    "lint": "prettier --write .",
-    "lint:check": "prettier .",
     "genv": "generate-env-types --pretty true",
     "genv:example": "generate-env-types --pretty true --definition-path \"\"",
     "genv:types": "generate-env-types --pretty true --example-path\"\"",
+    "preinstall": "npx -y only-allow@1.0.0 pnpm",
+    "lint": "prettier --write .",
+    "lint:check": "prettier .",
     "prepare": "husky install"
   },
   "dependencies": {
