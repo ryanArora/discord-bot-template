@@ -6,6 +6,9 @@
 
 # Secrets
 /.env
+/.env.local
+/.env.ci
+/.env.prod
 
 # Lockfiles for unused package managers
 /package-lock.json
