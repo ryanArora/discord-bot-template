@@ -4,7 +4,6 @@
   "description": "A template for my Discord bots",
   "main": "./src/index.js",
   "scripts": {
-    "build": "swc ./src --out-dir ./build",
     "build:clean": "rimraf ./build && pnpm build",
     "build:watch": "swc ./src --out-dir ./build -w",
     "genv": "generate-env-types --pretty true",
@@ -19,7 +18,8 @@
     "start:dev": "cross-env NODE_ENV=development node ./build/index.js",
     "start:prod": "cross-env NODE_ENV=production node ./build/index.js",
     "typecheck": "tsc --noEmit",
-    "typecheck:watch": "tsc --noEmit --watch"
+    "typecheck:watch": "tsc --noEmit --watch",
+    "build": "swc ./src --out-dir ./build"
   },
   "dependencies": {
     "@swc/helpers": "^0.3.2",
