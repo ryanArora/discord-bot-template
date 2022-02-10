@@ -1,0 +1,37 @@
+{
+  "name": "@ryanarora/discord-bot-template",
+  "description": "A template for my Discord bots",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "preinstall": "npx -y only-allow@1.0.0 pnpm",
+    "lint": "prettier --write .",
+    "lint:check": "prettier .",
+    "genv": "generate-env-types --pretty true",
+    "genv:example": "generate-env-types --pretty true --definition-path \"\"",
+    "genv:types": "generate-env-types --pretty true --example-path\"\"",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cross-env": "^7.0.3",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "fs-extra": "^10.0.0",
+    "tiny-invariant": "^1.2.0",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/types": "^16.0.0",
+    "@ryanarora/generate-env-types": "git+https://github.com/ryanArora/generate-env-types.git#1.1.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.17",
+    "@types/prettier": "^2.4.4",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.3",
+    "only-allow": "^1.0.0",
+    "prettier": "^2.5.1"
+  }
+}

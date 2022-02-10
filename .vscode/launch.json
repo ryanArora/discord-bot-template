@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "name": "Launch Bot (Development)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "dev"]
+    }
+  ]
+}

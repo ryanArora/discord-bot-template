@@ -1,0 +1,15 @@
+# Genereated
+/node_modules
+/build
+/dist
+/typings/env.d.ts
+
+# Secrets
+/.env
+
+# Lockfiles for unused package managers
+/package-lock.json
+/yarn.lock
+
+# Logs
+*.log

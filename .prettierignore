@@ -1,0 +1,10 @@
+# Generated
+/node_modules
+/build
+/dist
+/typings/env.d.ts
+
+# Lockfiles
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
