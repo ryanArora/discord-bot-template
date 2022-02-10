@@ -10,6 +10,6 @@ const PingCommand: Command = {
   usage: "ping",
   aliases: ["latency", "delay"],
   execute,
-}
+};
 
 export default PingCommand;
