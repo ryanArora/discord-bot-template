@@ -24,7 +24,7 @@ jobs:
           version: latest
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Sort package json
         run: pnpm lint:sort-package-json
