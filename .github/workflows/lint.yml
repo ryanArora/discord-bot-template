@@ -21,3 +21,15 @@ jobs:
       - name: Run linters
         run:
           - pnpm run lint
+
+      - name: Commit files
+        run: |
+          git config --local user.email "arora.ryan@gmail.com"
+          git config --local user.name "Github Actions"
+          git commit -am "style: Lint code"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
