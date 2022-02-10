@@ -3,3 +3,4 @@ import invariant from "tiny-invariant";
 
 dotenv.config();
 invariant(process.env.DISCORD_TOKEN, "DISCORD_TOKEN is required");
+process.env.BURHUBR;

@@ -6,7 +6,7 @@
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["run", "dev"]
+      "runtimeArgs": ["run", "start:dev"]
     }
   ]
 }
