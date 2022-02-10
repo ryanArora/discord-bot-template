@@ -2,7 +2,7 @@ name: deploy
 on:
   workflow_dispatch:
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
       - name: Move files to deploy into deploy folder
         run: |
           mkdir _deploy
-          echo ${{ secrets.ENV_FILE }} > _deploy/.env
+          echo "${{ secrets.ENV_FILE }}" > _deploy/.env
           mv ./build _deploy
           mv ./package.json _deploy
           mv ./pnpm-lock.yaml _deploy
