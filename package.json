@@ -12,6 +12,7 @@
     "genv:types": "generate-env-types --pretty true --example-path\"\"",
     "preinstall": "npx -y only-allow pnpm",
     "lint": "pnpm run lint:sort-package-json && pnpm run lint:prettier",
+    "lint:check": "prettier --check .",
     "lint:prettier": "prettier --write .",
     "lint:sort-package-json": "sort-package-json",
     "prepare": "husky install",
