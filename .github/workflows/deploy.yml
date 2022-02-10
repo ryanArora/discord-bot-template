@@ -19,11 +19,29 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Copy files to server
+      - name: Copy build to server
         uses: easingthemes/ssh-deploy@main
         env:
           ARGS: "-rltgoDzvO --delete"
-          SOURCE: "./build package.json pnpm-lock.yaml"
+          SOURCE: "./build"
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          TARGET: ${{ secrets.SERVER_TARGET }}
+
+      - name: Move files to deploy into deploy folder
+        run: |
+          mkdir _deploy
+          mv ./build _deploy
+          mv ./package.json _deploy
+          mv ./pnpm-lock.yaml _deploy
+
+      - name: Copy build to server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "_deploy/"
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.SERVER_HOST }}
           REMOTE_PORT: ${{ secrets.SERVER_PORT }}
