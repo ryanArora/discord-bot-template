@@ -38,24 +38,13 @@ jobs:
           mv ./package.json _deploy
           mv ./pnpm-lock.yaml _deploy
 
-      - name: Copy build to server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          ARGS: "-rltgoDzvO --delete"
-          SOURCE: "_deploy/"
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
-          REMOTE_PORT: ${{ secrets.SERVER_PORT }}
-          REMOTE_USER: ${{ secrets.SERVER_USER }}
-          TARGET: ${{ secrets.SERVER_TARGET }}
-
       - name: Redeploy app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_SSH_PORT }}
+          port: ${{ secrets.SERVER_PORT }}
           script: |
             cd ${{ secrets.SERVER_TARGET }}
             pnpm install --frozen-lockfile
