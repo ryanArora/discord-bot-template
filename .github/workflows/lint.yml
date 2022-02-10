@@ -2,21 +2,25 @@ name: lint
 on:
   push:
   pull_request:
-  workflow_dispatch:
 jobs:
-  lint:
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.5.1
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: latest
+      - name: Check out Git repository
+        uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
 
-      - name: Lint
-        run: pnpm run lint:check
+      - name: Install prettier
+        run: pnpm install prettier
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          auto_fix: true
+          prettier: true
