@@ -8,7 +8,7 @@ const PingCommand: Command = {
   name: "ping",
   description: "Ping!",
   usage: "ping",
-  aliases: ["latency", "delay"],
+  aliases: [],
   execute,
 };
 
