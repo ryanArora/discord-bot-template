@@ -8,3 +8,6 @@
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Github Directory
+/.github/
