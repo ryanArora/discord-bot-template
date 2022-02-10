@@ -7,6 +7,7 @@ specifiers:
   '@ryanarora/generate-env-types': git+https://github.com/ryanArora/generate-env-types.git#1.1.1
   '@swc/cli': ^0.1.55
   '@swc/core': ^1.2.138
+  '@swc/helpers': ^0.3.2
   '@types/fs-extra': ^9.0.13
   '@types/node': ^17.0.17
   '@types/prettier': ^2.4.4
@@ -20,6 +21,7 @@ specifiers:
   lint-staged: ^12.3.3
   only-allow: ^1.0.0
   prettier: ^2.5.1
+  regenerator-runtime: ^0.13.9
   rimraf: ^3.0.2
   sort-package-json: ^1.54.0
   tiny-invariant: ^1.2.0
@@ -27,11 +29,13 @@ specifiers:
   typescript: ^4.5.5
 
 dependencies:
+  '@swc/helpers': 0.3.2
   chalk: 4.1.2
   cross-env: 7.0.3
   discord.js: 13.6.0
   dotenv: 16.0.0
   fs-extra: 10.0.0
+  regenerator-runtime: 0.13.9
   tiny-invariant: 1.2.0
 
 devDependencies:
@@ -450,6 +454,10 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.2.138
       '@swc/core-win32-x64-msvc': 1.2.138
     dev: true
+
+  /@swc/helpers/0.3.2:
+    resolution: {integrity: sha512-qEru2uaH1vKZNCZR4rFCUZaflsBP7IWiGcIoQe22qi5tm+HEG/yPdhSba+ZCNTWk2xyYpx/nEFkncDY3orEx3w==}
+    dev: false
 
   /@tsconfig/node10/1.0.8:
     resolution: {integrity: sha512-6XFfSQmMgq0CFLY1MslA/CPUfhIL919M1rMsa5lP2P097N2Wd1sSX0tx1u4olM16fLNhtHZpRhedZJphNJqmZg==}
@@ -1777,6 +1785,10 @@ packages:
       indent-string: 4.0.0
       strip-indent: 3.0.0
     dev: true
+
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: false
 
   /require-directory/2.1.1:
     resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=}

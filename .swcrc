@@ -2,5 +2,15 @@
   "minify": true,
   "module": {
     "type": "commonjs"
+  },
+  "jsc": {
+    "parser": {
+      "target": "es2021",
+      "syntax": "typescript",
+      "externalHelpers": true,
+      "tsx": false,
+      "decorators": false,
+      "dynamicImport": false
+    }
   }
 }

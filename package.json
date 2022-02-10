@@ -5,8 +5,8 @@
   "main": "./src/index.js",
   "scripts": {
     "build": "swc ./src --out-dir ./build",
-    "build:clean": "rimraf ./build",
-    "build:watch": "swc ./src --out-dir ./build -w --sync",
+    "build:clean": "rimraf ./build && pnpm build",
+    "build:watch": "swc ./src --out-dir ./build -w",
     "genv": "generate-env-types --pretty true",
     "genv:example": "generate-env-types --pretty true --definition-path \"\"",
     "genv:types": "generate-env-types --pretty true --example-path\"\"",
@@ -22,11 +22,13 @@
     "typecheck:watch": "tsc --noEmit --watch"
   },
   "dependencies": {
+    "@swc/helpers": "^0.3.2",
     "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "fs-extra": "^10.0.0",
+    "regenerator-runtime": "^0.13.9",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
